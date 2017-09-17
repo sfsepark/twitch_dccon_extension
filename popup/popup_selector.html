@@ -1,0 +1,181 @@
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0" />
+  <title>디시콘 선택기</title>
+  <link rel="stylesheet" href="plugins/bootstrap.min.css">
+  <style>
+
+    body{
+      width:400; height:600;
+      background-color: #333;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 600px) {
+      div.img {
+        margin: 0.9%;
+        border: 1px solid rgba(255,255,255,0);
+        float: left;
+        width: 18%;
+        backface-visibility: visible !important;
+        animation: bounceIn 1.2s;
+        transition: .2s;
+        z-index: 1;
+      }
+    }
+    @media screen and (min-width: 601px) {
+      div.img {
+        margin: 5px;
+        border: 1px solid rgba(255,255,255,0);
+        float: left;
+        width: 100px;
+        height: 100px;
+        backface-visibility: visible !important;
+        animation: bounceIn 1.2s;
+        transition: .2s;
+        z-index: 1;
+      }
+    }
+    div.img:hover {
+      border: 1px solid #fff;
+      box-shadow: 0px 0px 25px 1px #fff, inset 0px 0px 25px 1px #fff; 
+    }
+    @keyframes bounceIn {
+      from, 20%, 40%, 60%, 80%, to {z-index: -5; animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);}
+      0% {transform: scale3d(.3, .3, .3); opacity: 0;}
+      20% {transform: scale3d(1.1, 1.1, 1.1);}
+      40% {transform: scale3d(.9, .9, .9);}
+      60% {transform: scale3d(1.03, 1.03, 1.03); opacity: .9; }
+      80% {transform: scale3d(.97, .97, .97);}
+      to {transform: scale3d(1, 1, 1); opacity: 1;}
+    }
+    div.img img {
+      width: 100%;
+      height: auto;
+    }
+/*    div.img img:hover{
+      box-shadow: inset 0px 0px 25px 1px #fff; 
+    }*/
+    div.desc {
+      display: none;
+    }
+    input,.input-group {
+      width: 100%;
+    }
+    div.headerBox{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 55px;
+      background-color:#333;
+      background-repeat: repeat;
+      box-shadow: 0 0px 20px 20px #333;
+    }
+    div.header {
+      padding: 0px 0px 0px 3px;
+      max-width: 400px;
+      margin: 18px auto;
+      background-color: #333;
+    }
+    .emoticon {
+      margin-top: 75px;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      height: auto;
+      z-index: 999;
+    }
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+      width: 63px;
+    }
+    .col-lg-6l, .col-lg-6r{
+      width: 50%;
+      padding: 5px;
+      float: left;
+      animation: slideInLeft 1s;
+    }
+    .col-lg-6r{
+      animation: slideInRight 1s;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+        opacity: 0;
+      }
+
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        opacity: 0;
+      }
+
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+
+
+
+  </style>
+  <script src="plugins/jquery.min.js"></script>
+  <script src="plugins/handlebars.min.js"></script>
+  <script src="plugins/jquery.quicksearch.min.js"></script>
+  <script src="plugins/jquery.lazyload.min.js"></script>
+  <script src="plugins/clipboard.min.js"></script>
+</head>
+<body>
+  <script id="dccon-template" type="text/x-handlebars-template">
+  {{#dccon}}
+  <div class="img">
+    <a href="#">
+      <img class="lazy" data-original="{{src}}" alt="{{name}}" width="100" height="100">
+    </a>
+    <div class="desc">{{name}}</div>
+  </div>
+  {{/dccon}}
+  </script>
+  
+  <div class="headerBox">
+    <div class="row header">
+      <div class="col-lg-6l">
+        <div class="input-group">
+          <input type="text" id="dcconsearch" class="form-control dcconsearch" placeholder="검색">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">전체</button>
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-6r">
+        <div class="input-group">
+          <input type="text" id="dcconresult" class="form-control dcconresult" placeholder="선택">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" data-clipboard-target="#dcconresult">복사</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="emoticon" class="emoticon">
+  </div>
+  <script src = "popup_selector_script.js">
+
+  </script>
+</body>
+</html>
