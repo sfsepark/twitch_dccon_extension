@@ -69,7 +69,7 @@
     }
     function inputDCCon(name) {
       $('#dcconresult').val(name);
-      chrome.tabs.query({"status":"complete","windowId":chrome.windows.WINDOW_ID_CURRENT,"active":true}, function(tabs){
+      chrome.tabs.query({"windowId":chrome.windows.WINDOW_ID_CURRENT,"active":true}, function(tabs){
           chrome.tabs.sendMessage(tabs[0].id, {'action' : "DCCON", 'name': name});
       });
     }

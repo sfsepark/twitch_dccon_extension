@@ -1,0 +1,259 @@
+div.new-chat {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+div#new-chat-input-container {
+    position: relative;
+}
+
+div.new-chat-input-container {
+    position: relative;
+}
+
+div.new-chat-input {
+    height : 48px;
+
+    padding-left : 10px;
+    padding-right: 60px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    overflow-y: auto;
+
+}
+
+.nc-light .new-chat-input {
+    outline : #DAD8DE solid 1px;
+    background: #ffffff;
+}
+
+.nc-dark .new-chat-input {
+    outline : rgb(57,46,92) solid 1px;
+    background: rgb(14,12,19);
+
+}
+
+
+div.new-chat-pickers {
+    position:  absolute;
+    top:0px;
+    height: 30px;
+    right: 0px;
+    line-height: 18px;
+}
+
+.new-chat-emote_picker {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    border : 1px solid transparent;
+    outline:none;
+}
+
+.nc-button{
+    outline: none;
+}
+
+.nc-button:active {
+    box-shadow : 0 0 6px 0 #7d5bbe;
+    border-color:rgba(100,65,164,.6);
+}
+
+.nc-button:focus {
+    color: #a49fad;
+}
+
+.nc-button:hover {
+    background-color: rgba(100,65,164,.05);
+}
+
+div.new-chat-input:focus {
+    outline : #7d6bbe solid 1px; 
+}
+
+button.new-chat-send-button {
+    border: 1px solid rgba(0,0,0,0);
+    background-clip:  border-box;
+    background-color: rgb(100,65,164);
+    width : 42px;
+    height: 30px;
+    outline: none;
+}
+
+span.new-button-text {
+    padding-top : 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #ffffff;
+
+    font-size : 12px;
+}
+
+div[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  color : #999;
+}
+
+.nc-light .new-chat-input[contenteditable=true] {
+  color : #111;
+  font-size: 12px;
+}
+
+.nc-dark .new-chat-input[contenteditable=true] {
+  color : #faf9fa;
+  font-size: 12px;
+}
+
+
+span.new-chat-first-span{
+    width : 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+div.new-chat-input-buttons-container{
+    margin-top : 10px;
+    width : 100%;
+    display : flex;
+    vertical-align: baseline;
+    justify-content: space-between;
+}
+
+div.new-chat-flex-container{
+    flex-direction: row;
+    display : flex;
+}
+
+.nc-VC-button {
+    width:28px;
+    height: 28px;
+    border : 1px;
+}
+
+.nc-CS-button {
+    width:28px;
+    height: 28px;
+    border : 1px;
+}
+
+.funzinnu-dccon-picker{
+    width : 30px;
+    height : 30px;
+}
+
+
+.nc-balloon--up.c-balloon--right {
+    right: 0;
+    left: auto;
+}
+
+.nc-block {
+    display: block!important;
+}
+.nc-absolute {
+    position: absolute!important;
+}
+.nc-balloon--md {
+    width: 30rem;
+}
+.nc-balloon--up {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 8px;
+}
+
+.nc-balloon--right {
+    margin-left: 8px;
+}
+.nc-balloon {
+    min-width: 16rem;
+    max-width: 90vw;
+    z-index: 2000;
+}
+
+
+.nc-elevation-1 {
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.1),0 2px 2px -2px rgba(0,0,0,.02),0 1px 4px 0 rgba(0,0,0,.04)!important;
+}
+.nc-c-background {
+    background-color: #fff!important;
+}
+.nc-border-radius-small, .tw-theme--dark .tw-border-radius-small, .tw-theme--light .tw-border-radius-small {
+    border-radius: 2px!important;
+}
+.nc-border-l {
+    border-left: 1px solid #dad8de!important;
+}
+.nc-border-b {
+    border-bottom: 1px solid #dad8de!important;
+}
+.nc-border-r {
+    border-right: 1px solid #dad8de!important;
+}
+.nc-border-t {
+    border-top: 1px solid #dad8de!important;
+}
+
+.nc-picker {
+    width: 100%;
+}
+
+.nc-picker-content {
+    max-height: 30.5rem;
+}
+.scrollable-area {
+    position: relative;
+    height: 100%;
+}
+[data-simplebar=init] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+[data-simplebar] {
+    z-index: 0;
+    overflow: hidden;
+}
+
+.nc-pd-1 {
+    padding: 1rem!important;
+ 
+}
+
+.nc-light .nc-pd-1{
+    background-color: #ffffff;
+}
+
+.nc-dark .nc-pd-1{
+    background-color: #201C2B;
+}
+
+.nc-emote-span{
+    display:block;
+    width : 40px;
+    height: 38px;
+}
+
+.nc-pd-b-2 {
+    padding-bottom: 2rem!important;
+}
+
+.nc-pd-t-1 {
+    padding-top: 1rem!important;
+}
+.nc-relative {
+    position: relative!important;
+}
+
+.nc-picker-control {
+    text-align: center;
+}
+
+.new-chat .loading {
+    color : #ffffff;
+}

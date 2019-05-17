@@ -1,0 +1,206 @@
+.dccon_frame{
+    width:100%;
+    text-align: center;
+}
+
+.nc-light .dccon_control_frame{
+    background-color : #ffffff;
+}
+
+.nc-dark .dccon_control_frame{
+    background-color : #201C2B;
+}
+
+
+.dccon_content_frame{
+    background-color: #333;
+    padding: 20px 7px;
+}
+
+.nc-light .dccon_content_frame {
+    box-shadow: inset 0px 0px 10px 1px #fff; 
+}
+
+.nc-dark .dccon_content_frame {
+    box-shadow: inset 0px 0px 15px 1px #201c2b; 
+}
+
+.dccon_control_frame{
+    width:100%;
+}
+
+.dccon_frame * div.img {
+    display:inline-block;
+    margin: 3px;
+    border: 1px solid rgba(255,255,255,0);
+    width: 55px;
+    height: 55px;
+    backface-visibility: visible !important;
+    /*animation: bounceIn 1.2s;*/
+    transition: .2s;
+    z-index: 1;
+}
+
+.dccon_frame * div.img:hover {
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 25px 1px #fff, inset 0px 0px 25px 1px #fff; 
+}
+@keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {z-index: -5; animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);}
+    0% {transform: scale3d(.3, .3, .3); opacity: 0;}
+    20% {transform: scale3d(1.1, 1.1, 1.1);}
+    40% {transform: scale3d(.9, .9, .9);}
+    60% {transform: scale3d(1.03, 1.03, 1.03); opacity: .9; }
+    80% {transform: scale3d(.97, .97, .97);}
+    to {transform: scale3d(1, 1, 1); opacity: 1;}
+}
+.dccon_frame * div.img img {
+    width: 100%;
+    height: auto;
+}
+/*    div.img img:hover{
+    box-shadow: inset 0px 0px 25px 1px #fff; 
+}*/
+.dccon_frame * div.desc {
+    display: none;
+}
+.dccon_frame * input,.input-group {
+    width: 100%;
+    z-index : 2;
+}
+.dccon_frame * div.headerBox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 55px;
+    background-color:#333;
+    background-repeat: repeat;
+    box-shadow: 0 0px 20px 20px #333;
+}
+.dccon_frame * div.header {
+    padding: 0px;
+    margin :3px 0px;
+    max-width: 400px;
+    background-color: #333;
+}
+.dccon_frame * .emoticon {
+    margin-top: 75px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    height: auto;
+    z-index: 999;
+}
+.dccon_frame * .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+    width: 63px;
+}
+.dccon_frame * .col-lg-6l, .col-lg-6r{
+    width: 100%;
+    padding: 5px;
+    float: left;
+    /*animation: slideInLeft 1s;*/
+    z-index : 3;
+}
+.dccon_frame * .col-lg-6r{
+    animation: slideInRight 1s;
+}
+
+@keyframes slideInLeft {
+    from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+    opacity: 0;
+    }
+
+    to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    }
+}
+
+.dccon_tooltip{
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 15px 1px #fff, inset 0px 0px 2px 1px #fff; 
+}
+
+@keyframes slideInRight {
+    from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    opacity: 0;
+    }
+
+    to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    }
+}
+
+.dccon_img{
+    position: relative;;
+    z-index: -1;
+}
+
+.dccon_frame * a{
+    position :relative;
+    z-index : -1;
+}
+
+.dccon_frame * div.desc{
+    position :relative;
+    z-index : -1;
+}
+
+.input-group-btn:focus {
+    outline: none;
+}
+
+.form-control:focus{
+    border-color : #7d5bbe;
+    box-shadow: rgba(0,0,0,0.075) 0px 1px 1px inset, #7d5bbe 0px 0px 8px;
+}
+
+.btn-default:focus{
+    border-color : #7d5bbe;
+    box-shadow: rgba(0,0,0,0.075) 0px 1px 1px inset, #7d5bbe 0px 0px 8px;
+    outline: none;
+}
+
+.btn-default:active:focus{
+    border-color : #7d5bbe;
+    box-shadow: rgba(0,0,0,0.075) 0px 1px 1px inset, #7d5bbe 0px 0px 8px;
+    outline: none;
+}
+
+.nc-dark .form-control:focus{
+    border-color : #7d5bbe;
+    box-shadow: #201c2b 0px 1px 1px inset, #7d5bbe 0px 0px 8px;
+}
+
+.nc-dark .btn-default:focus{
+    border-color : #7d5bbe;
+    box-shadow: #201c2b 0px 1px 1px inset, #7d5bbe 0px 0px 8px;
+}
+
+.nc-dark .btn-default{
+    background-color:  #201c2b;
+    color: #fff;
+    border-color: rgb(57,46,92);
+}
+
+.nc-dark .btn-default:active:focus{
+    background-color:  rgb(32, 28, 43);
+    color: #fff;
+    border-color: rgb(57,46,92);
+}
+
+.nc-dark .form-control{
+    background-color:  #201c2b;
+    color: #fff;
+    border-color: rgb(57,46,92);
+}

@@ -1,7 +1,8 @@
 {
     "manifest_version" : 2,
-    "name": "Twitch_DCCON_extension",
-    "version" : "1.1.0.1",
+    "name": "Twitch DCCON extension",
+    "description" : "트위치 디시콘 익스텐션 - 당신의 트위치 채팅창에서 디시콘을 보여줍니다.",
+    "version" : "1.4.2.6",
 
     "browser_action": {
         "css":["plugins/bootstrap.min.css"],
@@ -14,19 +15,55 @@
           "128": "DCCON_img.png" },
 
     "content_scripts": [{
-        "matches" : ["https://clips.twitch.tv/*","https://*.twitch.tv/funzinnu","https://*.twitch.tv/funzinnu/*","https://*.twitch.tv/videos/*"],
-        "css":["styles/styles.css"],
+        "matches" : ["https://*.twitch.tv/","https://*.twitch.tv/*"],
+        "css":["popup/plugins/bootstrap.min.css","styles/dccon_style.css","styles/styles.css"],
         "js":[
-            "content_scripts/dccon_searcher.js"
+            "setup/setting.js",
+
+            "popup/plugins/jquery.min.js","popup/plugins/jquery.min.js","popup/plugins/jquery.quicksearch.min.js","popup/plugins/jquery.lazyload.min.js",
+            "popup/plugins/clipboard.min.js",
+            "popup/plugins/handlebars.min.js",
+            
+            "TwitchChatFramework/content_scripts/tmi.min.js","TwitchChatFramework/content_scripts/twitchChatframe.js",
+
+            "content_scripts/funzinnu_dccon_picker.js" ,
+            "content_scripts/emote_picker.js",
+            "content_scripts/dccon_observe.js",
+            "content_scripts/dccon_start_checker.js",
+            "content_scripts/main.js"
         ]        
         , "run_at" : "document_end"
     }],
     "background": {
-        "scripts": ["background/background.js"]
+        "scripts": [            
+            "lib/LRU_cache.js",
+            "TwitchChatFramework/background/search_extenstions.js",
+            "TwitchChatFramework/background/get_user_info.js",
+            "TwitchChatFramework/background/get_emote.js",
+            "TwitchChatFramework/background/get_channel_emote.js",
+            "TwitchChatFramework/background/tcf_background.js",
+            "TwitchChatFramework/background/master_check.js",
+            "TwitchChatFramework/background/get_extension_id.js",
+            "background/background.js"
+        ]
     },
     "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'",
     "permissions": [
         "tabs",
-        "contextMenus"
+        "contextMenus",
+        "cookies",
+        "*://*.twitch.tv/","storage","management"
+    ],
+    "web_accessible_resources":[
+        "emote_picker.png",
+        "black_bit_picker.png",
+        "bit_picker.png",
+        "gear.png",
+        "menu.png",
+        "DCCON_16.png",
+        "black_gear.png",
+        "black_menu.png",
+        "dark_emote_picker.png",
+        "html/*"
     ]
 }
