@@ -41,12 +41,6 @@ function useDcconStartChecker(loginStatus){
 
                             if(loginStatus == true){
 
-                                if(isMaster){
-                                    pickers.push(emote_picker);                                    
-                                    emote_picker.init(roomStreamer);                                    
-                                    onReset.push(emote_picker.reset);
-                                }
-
                                 if(roomStreamer == 'funzinnu')
                                 {
                                     funzinnu_dccon_picker.setDCCONJSON(DCCONJSON);

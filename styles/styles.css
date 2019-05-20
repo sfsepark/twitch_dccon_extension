@@ -47,9 +47,13 @@ div.new-chat-pickers {
 .new-chat-emote_picker {
     width: 30px;
     height: 30px;
-    padding: 6px;
+    padding: 5px;
     border : 1px solid transparent;
     outline:none;
+
+    align-items:center; position:relative;vertical-align:middle;
+
+    border-radius: 4px;
 }
 
 .nc-button{

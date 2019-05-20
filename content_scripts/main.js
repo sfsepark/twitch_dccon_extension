@@ -6,7 +6,7 @@ var timerPromise = new Promise(function(resolve, reject){
 });
 
 var bgPromises = new Promise(function(resolve, reject){
-    Promise.all([emote_picker.promise]).then(function(values){
+    Promise.all([new Promise(function(resolve){resolve(true)})]).then(function(values){
         resolve({result : true , data : values});
     }).catch(function(err){
         reject(err);

@@ -2,7 +2,7 @@
     "manifest_version" : 2,
     "name": "Twitch DCCON extension",
     "description" : "트위치 디시콘 익스텐션 - 당신의 트위치 채팅창에서 디시콘을 보여줍니다.",
-    "version" : "1.4.2.6",
+    "version" : "1.5",
 
     "browser_action": {
         "css":["plugins/bootstrap.min.css"],
@@ -27,7 +27,6 @@
             "TwitchChatFramework/content_scripts/tmi.min.js","TwitchChatFramework/content_scripts/twitchChatframe.js",
 
             "content_scripts/funzinnu_dccon_picker.js" ,
-            "content_scripts/emote_picker.js",
             "content_scripts/dccon_observe.js",
             "content_scripts/dccon_start_checker.js",
             "content_scripts/main.js"
@@ -55,7 +54,6 @@
         "*://*.twitch.tv/","storage","management"
     ],
     "web_accessible_resources":[
-        "emote_picker.png",
         "black_bit_picker.png",
         "bit_picker.png",
         "gear.png",
@@ -63,7 +61,6 @@
         "DCCON_16.png",
         "black_gear.png",
         "black_menu.png",
-        "dark_emote_picker.png",
         "html/*"
     ]
 }

@@ -116,7 +116,7 @@ var funzinnu_dccon_picker = (function() {
         }
     }
     function inputDCCon(name) {
-        tcf.addTextToChatInput(name + '&nbsp;');
+        tcf.addTextToChatInput(name + ' ');
     }
     function resetSearch() {
         $('#dcconsearch').val('');

@@ -14,7 +14,7 @@ var dcconObserver = function(streamer,DCCONJSON){
     chrome.runtime.onMessage.addListener(function(request, sender, callback) {
         if(request.action == 'DCCON')
         {
-            tcf.addTextToChatInput(request.name + '&nbsp;');//&nbsp;
+            tcf.addTextToChatInput(request.name + ' ');
         }
         if(request.action == 'ONOFF')
         {
@@ -55,7 +55,7 @@ var dcconObserver = function(streamer,DCCONJSON){
             {
                 (function(_j){
                 dccon[_j].addEventListener('click',function(){
-                    tcf.addTextToChatInput(dccon[_j].getAttribute('data') + '&nbsp;');
+                    tcf.addTextToChatInput(dccon[_j].getAttribute('data') + ' ');
                 });})(j);
             }
         }        
