@@ -1622,6 +1622,13 @@ define('observer',[],function(){
                 {
                     emoteSpan.push(chatLI.children[i]);
                 }
+                else if(
+                    chatLI.children[i].firstChild != null &&
+                    chatLI.children[i].firstChild.nodeName == 'SPAN' &&
+                    chatLI.children[i].firstChild.getAttribute('data-a-target') == emoteName)
+                {
+                    emoteSpan.push(chatLI.children[i].firstChild);
+                }
             }
             
         }
@@ -1629,12 +1636,19 @@ define('observer',[],function(){
         {
             var tmpSpan = chatLI.getElementsByClassName(chatMessage)[0].children;
             for(i = 0 ;i < tmpSpan.length; i ++){
-                if(tmpSpan[i].getAttribute('data-a-target') != 'emote-name')
+                if(tmpSpan[i].getAttribute('data-a-target') == 'emote-name')
                 {
-                    chatMessageSpan.push(tmpSpan[i]);
+                    emoteSpan.push(chatLI.children[i]);
                 }
                 else{
-                    emoteSpan.push(chatLI.children[i]);
+                    if(tmpSpan[i].firstChild.getAttribute('data-a-target') == 'emote-name')
+                    {
+                        emoteSpan.push(tmpSpan[i].firstChild);
+                    }
+                    else{
+                        chatMessageSpan.push(tmpSpan[i]);
+                    }
+                    
                 }
             }
         }
