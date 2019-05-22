@@ -1197,6 +1197,11 @@ define('chatTracker',[
             twitchTheme.colorCheckStop();
             
             chatTarget.clear();
+
+            for(var picker of pickerManager){
+                picker.turnOff();
+            }
+    
         }
         else{
         }
@@ -1342,6 +1347,10 @@ define('chatTracker',[
         terminate(isMaster);
 
         chatTarget.clear();
+
+        for(var picker of pickerManager){
+            picker.turnOff();
+        }
 
 
         INIT_STATUS = INIT_STOP;
