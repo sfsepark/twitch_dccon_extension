@@ -1,6 +1,6 @@
 /*
     TWITCH DCCON EXTENSTION 
-    version 1.4.2
+    version 1.5
 
     Main developer : sfsepark@gmail.com
     DCCON selector developer : funzinnu@gmail.com

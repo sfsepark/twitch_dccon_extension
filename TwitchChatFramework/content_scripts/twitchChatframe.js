@@ -1291,6 +1291,31 @@ define('chatTracker',[
             startBitButtonChecker();
         }
 
+
+        chatTarget.chat_input.addEventListener('keydown',function(event){
+            if (event.keyCode === 13) {
+                setTimeout(function(){
+                    if(chatTarget.chat_input.value == '')
+                    {
+                        for(var method of afterSendMethod){
+                            method();
+                        }
+                    }
+                },100);
+            }
+        });
+
+        chatTarget.send_button.addEventListener('click',function(){
+            setTimeout(function(){
+                if(chatTarget.chat_input.value == '')
+                {
+                    for(var method of afterSendMethod){
+                        method();
+                    }
+                }
+            },100);   
+        });
+
     }
 
     function chatTrackingStart(streamerInfo, isMaster)
@@ -1571,22 +1596,28 @@ define('observer',[],function(){
             var child = target.children;
             var len = child.length;
 
+            var isTerminate = false;
+
+
             for(var i = len - 1 ; i >= 0 ; i --)
             {
-                if(child[i].getAttribute(TCF_CHANGED_ATTR) == 'true')
+                for(var c in child[i].classList)
                 {
-                    break;
-                }
-                else{
-                    child[i].setAttribute(TCF_CHANGED_ATTR,'true');
-
-                    for(var c in child[i].classList)
+                    if(child[i].classList[c] == "chat-line__message")
                     {
-                        if(child[i].classList[c] == "chat-line__message")
-                            edit_chating(child[i]);              
-                            break;
+                        if(child[i].getAttribute(TCF_CHANGED_ATTR) == 'true')
+                        {
+                            isTerminate = true;
+                        }
+                        else{
+                            child[i].setAttribute(TCF_CHANGED_ATTR,'true');
+                            edit_chating(child[i]);   
+                        }                
+                        break;
                     }
-                }            
+                }  
+
+                if(isTerminate) break;
             }  
 
         }
