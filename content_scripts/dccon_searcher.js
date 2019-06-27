@@ -10,7 +10,6 @@ https://www.twitch.tv/funzzinuu
 //init JSON
 
 var DCCONJSON = null;
-var ONOFF = true;
 
 chrome.runtime.sendMessage({
     method: 'POST',
@@ -19,30 +18,6 @@ chrome.runtime.sendMessage({
     data: ''
 }, function(responseText) {
     DCCONJSON = JSON.parse(responseText);
-});
-
-chrome.runtime.sendMessage({
-    method: 'POST',
-    action: 'ONOFF_CHECK'
-}, function(responseText) {
-    if(responseText == 'false')
-    {
-        ONOFF = false;
-    }
-});
-
-chrome.runtime.onMessage.addListener(function(request, sender, callback) {
-    if(request.action == 'DCCON')
-    {
-        try{
-            document.getElementsByClassName('chat-interface')[0].getElementsByClassName('chat-input')[0].getElementsByClassName('chat_text_input')[0].value = request.name;
-        }
-        catch(e){}
-    }
-    if(request.action == 'ONOFF')
-    {
-        ONOFF = request.toggle;
-    }
 });
 //end of init
 
@@ -118,7 +93,7 @@ var observeInterval = setInterval(function(){
 var edit_chating = function(chatLI)
 {
     var result = reg.exec(chatLI.getElementsByClassName('message')[0].innerHTML);
-    if(result != null && DCCONJSON[result[1]] != undefined && ONOFF == true)
+    if(result != null && DCCONJSON[result[1]] != undefined)
     {
         chatLI.getElementsByClassName('message')[0].innerHTML = "<div style =\"height : 10px;\"></div><div style =\"margin-top:2px margin-bottom:2px\"><span class=\"balloon-wrapper\"><img src=\"" + 
         DCCONJSON[result[1]] + "\" alt=\"~" + result[1] + "\" class=\"emoticon\"><div class=\"balloon balloon--tooltip balloon--up balloon--center mg-t-1\">~"+ result[1] +"</div></span></div><div style =\"height : 10px;\"></div>" + result[2];
