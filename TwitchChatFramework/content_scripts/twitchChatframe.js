@@ -1094,8 +1094,8 @@ define('chatTarget',[],function(){
     
         if(cur_emote_picker == null || 
             cur_send_button == null ||
-            cur_chat_setting_button == null ||
-            cur_chat_view_list_button == null ||
+            //cur_chat_setting_button == null ||
+            //cur_chat_view_list_button == null ||
             cur_chat_input == null){
             return false;
         }
