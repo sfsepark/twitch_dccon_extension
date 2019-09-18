@@ -96,7 +96,7 @@ var dcconObserver = function(streamer,DCCONJSON){
         <div class="tw-tooltip-wrapper inline" data-a-target="emote-name"><img src="http://puu.sh/sYGQM/1887cb7d57.gif" alt="~우리핵박수1" class="emoticon" style="width:100px; height:100px"><div class="tw-tooltip tw-tooltip--up tw-tooltip--align-center" data-a-target="tw-tooltip-label" style="margin-bottom: 0.9rem; display: block; visibility: visible;">~우리핵박수1</div></div>
     */
 
-        messageHTML = "<div class='chat-dccon' data='~" + Text + "' style =\"margin-top:4px; margin-bottom:4px; height:" + height + "px;\"><div class=\"tw-tooltip-wrapper inline\" data-a-target=\"emote-name\"><img src=\"" + 
+        messageHTML = "<div class='chat-dccon' data='~" + Text + "' style =\"margin-top:4px; margin-bottom:4px; height:" + height + "px;\"><div class=\"tw-tooltip-wrapper tw-inline-block chat-line__message--emote chat-image\" data-a-target=\"emote-name\"><img src=\"" + 
         cur_dccon + "\" alt=\"~" + Text + "\" class=\"emoticon\" style=\"width:" + width + "px; height:" + height +"px\"><div class=\"tw-tooltip tw-tooltip--up tw-tooltip--align-center\" data-a-target=\"tw-tooltip-label\" style=\"margin-bottom: 0.9rem;\">~"+ Text +"</div></div></div>";    
         converted_Text = messageHTML;
     
