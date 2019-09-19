@@ -142,12 +142,12 @@
 }
 
 .dccon_img{
-    position: relative;;
+    position: static;;
     z-index: -1;
 }
 
 .dccon_frame * a{
-    position :relative;
+    position :static;
     z-index : -1;
 }
 

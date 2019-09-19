@@ -15,7 +15,7 @@ var funzinnu_dccon_picker = (function() {
         contentFrame.innerHTML = '\
             <script id="dccon-template" type="text/x-handlebars-template">\
             {{#dccon}}\
-            <div class="img tw-tooltip-wrapper">\
+            <div class="img tw-tooltip-wrapper tw-inline-block chat-line__message--emote chat-image">\
                 <div class=\"dccon_tooltip tw-tooltip tw-tooltip--up tw-tooltip--align-center\" data-a-target=\"tw-tooltip-label\" style=\"margin-bottom: 0.9rem;\">{{name}}</div>\
                 <a href="#">\
                 <img class="lazy dccon_img" src="{{src}}" alt="{{name}}">\
