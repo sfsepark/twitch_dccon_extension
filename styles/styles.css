@@ -261,3 +261,38 @@ div.new-chat-flex-container{
 .new-chat .loading {
     color : #ffffff;
 }
+
+/* 트위치 테마 적용 (신) */
+
+section[data-a-target=chat-theme-light] .new-chat-input {
+    outline : #DAD8DE solid 1px !important;
+    background: #ffffff !important;
+}
+
+section[data-a-target=chat-theme-dark] .new-chat-input {
+    outline : rgb(57,46,92) solid 1px !important;
+    background: rgb(14,12,19) !important;
+}
+
+
+  
+section[data-a-target=chat-theme-light] .new-chat-input[contenteditable=true]{
+    color : #111 !important;
+    font-size: 12px !important;
+}
+
+section[data-a-target=chat-theme-dark] .new-chat-input[contenteditable=true]{
+    color : #faf9fa !important;
+    font-size: 12px !important;
+}
+
+
+
+section[data-a-target=chat-theme-light] .nc-pd-1{
+    background-color: #ffffff !important;
+}
+
+section[data-a-target=chat-theme-dark] .nc-pd-1{
+    background-color: #201C2B !important;
+}
+

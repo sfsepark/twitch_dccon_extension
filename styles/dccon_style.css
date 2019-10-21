@@ -204,3 +204,50 @@
     color: #fff;
     border-color: rgb(57,46,92);
 }
+
+/* 트위치 테마 적용 (신) */
+
+section[data-a-target=chat-theme-light] .dccon_control_frame{
+    background-color : #ffffff !important;
+}
+
+section[data-a-target=chat-theme-dark] .dccon_control_frame{
+    background-color : #201C2B !important;
+}
+
+section[data-a-target=chat-theme-light]  .dccon_content_frame {
+    box-shadow: inset 0px 0px 10px 1px #fff !important; 
+}
+
+section[data-a-target=chat-theme-dark] .dccon_content_frame {
+    box-shadow: inset 0px 0px 15px 1px #201c2b !important; 
+}
+
+
+section[data-a-target=chat-theme-dark] .form-control:focus{
+    border-color : #7d5bbe !important;
+    box-shadow: #201c2b 0px 1px 1px inset, #7d5bbe 0px 0px 8px !important;
+}
+
+section[data-a-target=chat-theme-dark] .btn-default:focus{
+    border-color : #7d5bbe !important;
+    box-shadow: #201c2b 0px 1px 1px inset, #7d5bbe 0px 0px 8px !important;
+}
+
+section[data-a-target=chat-theme-dark] .btn-default{
+    background-color:  #201c2b !important;
+    color: #fff !important;
+    border-color: rgb(57,46,92) !important;
+}
+
+section[data-a-target=chat-theme-dark] .btn-default:active:focus{
+    background-color:  rgb(32, 28, 43) !important;
+    color: #fff !important;
+    border-color: rgb(57,46,92) !important;
+}
+
+section[data-a-target=chat-theme-dark] .form-control{
+    background-color:  #201c2b !important;
+    color: #fff !important;
+    border-color: rgb(57,46,92) !important;
+}
