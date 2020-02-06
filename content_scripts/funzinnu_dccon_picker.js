@@ -91,6 +91,11 @@ var funzinnu_dccon_picker = (function() {
                 'selector': 'div.desc',
                 'onAfter': function () {
                     $('#dccon-template').scroll();
+                },
+                'show' : function(){
+                    $(this).removeClass('dccon-hide');
+                },'hide' : function(){
+                    $(this).addClass('dccon-hide');
                 }
             });
 
