@@ -19,7 +19,7 @@
 https://chrome.google.com/webstore/detail/twitch-dccon-extension/nljojmgmnidbehhocgkbeejchcmkpgki?hl=ko
 
 
-대신 다음과 같은 설치방법을 따라주세요.
+대신 다음과 같은 설치방법을 따라주세요. ( https://tgd.kr/funzinnu/37258258 )
 
 1. github에서 파일을 다운로드 받으세요.
 
