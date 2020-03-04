@@ -27,19 +27,37 @@ var dcconObserver = function(streamer,DCCONJSON){
     //var reg = /((?:\S|\s)*)~(\S+)\s*((?:\S|\s)*)/;
     var dccon_search_reg = /~(\S+)\s*/;
 
+    function check_already_DCCON_converted(messageSpan){
+        return messageSpan.parentElement.getElementsByClassName('chat-dccon').length > 0
+    }
+
 
     function DCCON_edit_chat(type,messageSpan)
     {
-        if(type == 'text')
+        if(!check_already_DCCON_converted(messageSpan) && type == 'text')
         {
             var cur_html = '';
             var cur_text = messageSpan.innerText;
             var result = cur_text.split(dccon_search_reg);
+
+            var dccon_convert_count = 0;
     
             for(var j = 0 ; j < result.length ; j ++)
             {
                 if(j %2 == 1)   {
-                    cur_html += DCCON_converted(result[j]);
+
+                    if(dccon_convert_count == 0){
+                        let converted_html = DCCON_converted(result[j]);
+                        cur_html += converted_html;
+
+                        if(typeof(converted_html) == 'string' && converted_html[0] != '~'){
+                            dccon_convert_count ++;
+                        }
+                    }
+                    else{
+                        cur_html += '~' + result[j] + ' ';
+                    }
+
                 }
                 else{
                     cur_html += htmlEntityEnc(result[j]);
@@ -89,7 +107,7 @@ var dcconObserver = function(streamer,DCCONJSON){
             cur_dccon = GET_DCCON(Text);
 
             if(cur_dccon == undefined ) 
-                return '~' + converted_Text;
+                return '~' + converted_Text + ' ';
         }
         /*
 
