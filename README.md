@@ -3,7 +3,7 @@
 트위치 채팅창에서 스트리머가 지정한 '디시콘'을 보기 위한 크롬 익스텐션입니다.
 
 <img src="https://sfsepark.github.io/images/DCCON_SCREEN1.png" width="90%"></img>
-<img src="https://sfsepark.github.io/images/DCCON_SCREEN2.png" width="90%"></img>
+<img src="https://sfsepark.github.io/images/DCCON_SCREEN3.png" width="90%"></img>
 
 # 사용법 
 
