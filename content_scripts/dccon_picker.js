@@ -1,0 +1,139 @@
+let dccon_picker = (function(){
+
+    const DCCON_CONTENT_FRAME_CLASS = 'dccon_content_frame';
+    const DCCON_CONTROL_FRAME_CLASS = 'dccon_control_frame';
+
+    const EMOTICON_FRAME_CLASSNAME = 'dccon-emoticon';
+
+    let contentFrame = null;
+    let controlFrame = null;
+
+    let searchInput = null;
+
+    let dcconPickerButtons = null;
+
+    var drawContentFrame = function()
+    {
+        if(contentFrame == null){
+            contentFrame = document.createElement('div');
+            contentFrame.classList.add('dccon_frame');
+            contentFrame.classList.add(DCCON_CONTENT_FRAME_CLASS );
+            contentFrame.innerHTML = `
+                <div class="loading">로딩 중...</div>
+                <div class="${EMOTICON_FRAME_CLASSNAME}">
+                </div>
+            `;
+
+        }
+        
+        return contentFrame;
+    }
+
+
+    let drawControlFrame = function(){
+        if(controlFrame == null){
+            controlFrame = document.createElement('div');
+            controlFrame.classList.add('dccon_frame');
+            controlFrame.classList.add(DCCON_CONTROL_FRAME_CLASS);
+            controlFrame.classList.add(DCCON_CONTROL_FRAME_CLASS);
+            controlFrame.classList.add('tw-border-t');
+            controlFrame.classList.add('tw-pd-1');
+    
+            controlFrame.innerHTML = '\
+                <div class="col-lg-6l">\
+                    <div class="input-group">\
+                    <input type="text" id="dcconsearch" class="form-control dcconsearch" placeholder="검색">\
+                    <span class="input-group-btn">\
+                        <button class="btn btn-default" type="button">전체</button>\
+                    </span>\
+                    </div>\
+                </div>\
+            ';
+    
+            searchInput = controlFrame.getElementByClassName('dcconsearch')[0];
+            searchInput.addEventListener('change', (e) => {
+                if(dcconPickerButtons != null){
+                    dcconPickerButtons.search(e.target.value);
+                }
+            });
+        }
+
+        return controlFrame;
+
+    }
+
+    var initChatInject = function(){
+        contentFrame.innerHTML = `
+            <div class="loading">로딩 중...</div>
+            <div class="${EMOTICON_FRAME_CLASSNAME}">
+            </div>
+        `;
+        
+        searchInput.value = '';
+
+        setTimeout(LoadDCCon, 10);
+    }
+
+    var onLoadDcconContentFrame = function() {
+        initChatInject();
+        controlFrame.getElementsByClassName('btn btn-default')[0].onclick = resetSearch;
+    }
+
+    let dcconPickerOnClick = function(name){
+        tcf.addTextToChatInput(name + ' ');
+    }
+
+    let resetSearch = function() {
+        searchInput.value = '';
+    }
+
+
+    let LoadDCCon = function(){
+        try {
+            dcconPickerButtons = new DcconPickerButtons(dccondata, dcconPickerOnClick);
+            let emoticon_frame = contentFrame.getElementsByClassName('.' + EMOTICON_FRAME_CLASSNAME)[0];
+            emoticon_frame.appendChild = dcconPickerButtons.frame;
+
+            contentFrame.removeChild(contentFrame.getElementsByClassName('loading')[0]);
+        } catch (e) {
+            alert("Unknown error occured while parsing DCCon JSON.");
+            console.log(e);
+        }
+    }
+
+    let dccon_picker = new tcf.picker(
+        'dccon',
+        chrome.runtime.getURL('/DCCON_16.png'),
+        drawContentFrame,
+        drawControlFrame,
+        onLoadDcconContentFrame
+    );
+
+    let dccondata = {dccon : []};
+
+    dccon_picker.setDCCON = function(type, dcconJSON){
+        dccondata.dccon = [];
+
+        if(type == 'funzinnu'){
+            for(var i = 0 ; i < Object.keys( dcconJSON ).length ; i ++)
+            {
+                dccondata.dccon.push({
+                    name : [ Object.keys( dcconJSON )[i] ],
+                    src : dcconJSON[Object.keys( dcconJSON )[i]]
+                });
+            }
+        }
+        else{
+            dcconJSON = dcconJSON['dccons'];
+
+            dccondata.dccon = dcconJSON.map(dccon => {
+                return {
+                    name : dccon.keywords.concat(dccon.tag),
+                    src : dccon.path
+                }
+            })
+        }
+    }
+
+    return dccon_picker;
+})();
