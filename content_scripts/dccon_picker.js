@@ -12,6 +12,8 @@ let dccon_picker = (function(){
 
     let dcconPickerButtons = null;
 
+    let initialState = true;
+
     var drawContentFrame = function()
     {
         if(contentFrame == null){
@@ -49,13 +51,7 @@ let dccon_picker = (function(){
                     </div>\
                 </div>\
             ';
-    
-            searchInput = controlFrame.getElementByClassName('dcconsearch')[0];
-            searchInput.addEventListener('change', (e) => {
-                if(dcconPickerButtons != null){
-                    dcconPickerButtons.search(e.target.value);
-                }
-            });
+
         }
 
         return controlFrame;
@@ -75,8 +71,20 @@ let dccon_picker = (function(){
     }
 
     var onLoadDcconContentFrame = function() {
-        initChatInject();
-        controlFrame.getElementsByClassName('btn btn-default')[0].onclick = resetSearch;
+        if(initialState == false){
+            initChatInject();
+
+            searchInput = controlFrame.getElementByClassName('dcconsearch')[0];
+            searchInput.addEventListener('change', (e) => {
+                if(dcconPickerButtons != null){
+                    dcconPickerButtons.search(e.target.value);
+                }
+            });
+
+            controlFrame.getElementsByClassName('btn btn-default')[0].onclick = resetSearch;
+        
+            initialState = true;
+        }
     }
 
     let dcconPickerOnClick = function(name){
@@ -111,7 +119,7 @@ let dccon_picker = (function(){
 
     let dccondata = {dccon : []};
 
-    dccon_picker.setDCCON = function(type, dcconJSON){
+    let setDCCON = function(type, dcconJSON){
         dccondata.dccon = [];
 
         if(type == 'funzinnu'){
@@ -133,6 +141,17 @@ let dccon_picker = (function(){
                 }
             })
         }
+    }
+
+    dccon_picker.init = function(type, dcconJSON){
+        contentFrame = null;
+        controlFrame = null;
+
+        searchInput = null;
+        dcconPickerButtons = null;
+
+        setDCCON(type, dcconJSON);
+
     }
 
     return dccon_picker;
