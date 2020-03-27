@@ -69,8 +69,8 @@ let dcconAutoCompleteTray = (function(){
     let selectItemIndex = (index) => {
         selectedDCCON = index;
 
-        dcconAutoCompleteItems.forEach(item => {
-            if(item.index != selectedDCCON){
+        dcconAutoCompleteItems.forEach((item,index) => {
+            if(index != selectedDCCON){
                 item.turnOff();
             }
             else{
@@ -132,6 +132,8 @@ let dcconAutoCompleteTray = (function(){
                 let DOM = item.DOM;
                 ncTrayContentFrameDOM.appendChild( DOM );
             })
+
+            selectItemIndex(selectedDCCON);
         }
         else{
             ncTrayContentFrameDOM.innerText = '해당하는 디시콘이 없습니다.'
@@ -145,14 +147,14 @@ let dcconAutoCompleteTray = (function(){
         if(dcconAutoCompleteItems.length > 0){
             if(direction > 0){
                 selectedDCCON = selectedDCCON + 1;
-                if(selectedDCCON >= AutoCompleteItem.length){
+                if(selectedDCCON >= dcconAutoCompleteItems.length){
                     selectedDCCON = 0;
                 }
             }
             else{
                 selectedDCCON = selectedDCCON - 1;
                 if(selectedDCCON < 0){
-                    selectedDCCON = AutoCompleteItem.length - 1;
+                    selectedDCCON = dcconAutoCompleteItems.length - 1;
                 }
             }
 
@@ -170,4 +172,4 @@ let dcconAutoCompleteTray = (function(){
     
 
     return dcconAutoCompleteTray;
-})
+})()

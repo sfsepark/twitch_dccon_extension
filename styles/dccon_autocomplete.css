@@ -1,4 +1,4 @@
-.nc-chat-input-container__open{
+.tw-pd-0.nc-chat-input-container__open{
 
 
     padding: .5rem!important;
@@ -15,6 +15,15 @@
     box-shadow: 0 2px 3px -1px rgba(0,0,0,.1), 0 2px 2px -2px rgba(0,0,0,.02);
     margin: 0 -.5rem -.5rem;
     min-width: 100%;
+}
+
+.nc-chat-input-container__input-wrapper {
+    margin: 0 -1px -1px;
+}
+
+.nc-chat-input-tray-item__focused{
+    background-color: rgba(0,0,0,.05);
+    background-color: var(--color-background-interactable-alpha-hover);
 }
 
 .nc-chat-input-tray__off{
