@@ -1,4 +1,4 @@
-let DcconPickerButtons = function(dccondata, onClick){
+let DcconPickerButtons = function(dccondata, onClick, tooltip){
 
     const FRAME_CLASSNAME = 'dccon-picker-buttons-frame';
     const BUTTON_CLASSNAME = 'dccon-picker-button';
@@ -8,14 +8,22 @@ let DcconPickerButtons = function(dccondata, onClick){
         let dcconPickerButton = document.createElement('div');
         dcconPickerButton.className = BUTTON_CLASSNAME + ' img tw-tooltip-wrapper tw-inline-block chat-line__message--emote chat-image';
         dcconPickerButton.setAttribute('alt', name) ;
-        dcconPickerButton.innerHTML =
+
+        let dcconPickerButtonHTML = '';
+
+        if(tooltip !== false){
+            dcconPickerButtonHTML += 
+                `<div class=\"dccon_tooltip tw-tooltip tw-tooltip--up tw-tooltip--align-center\" data-a-target=\"tw-tooltip-label\" style=\"margin-bottom: 0.9rem;\">${name}</div>`
+        }
+        dcconPickerButtonHTML +=
             `
-                <div class=\"dccon_tooltip tw-tooltip tw-tooltip--up tw-tooltip--align-center\" data-a-target=\"tw-tooltip-label\" style=\"margin-bottom: 0.9rem;\">${name}</div>\
                 <a href="#">\
                     <img class="lazy dccon_img" src="${image}" alt="${name}">\
                 </a>\
             `;
-    
+            
+        dcconPickerButton.innerHTML = dcconPickerButtonHTML;
+
         return dcconPickerButton;
     };
 

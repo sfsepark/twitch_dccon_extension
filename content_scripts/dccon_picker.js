@@ -111,30 +111,6 @@ let dccon_picker = (function(){
 
     let dccondata = {dccon : []};
 
-    let setDCCON = function(type, dcconJSON){
-        dccondata.dccon = [];
-
-        if(type == 'funzinnu'){
-            for(var i = 0 ; i < Object.keys( dcconJSON ).length ; i ++)
-            {
-                dccondata.dccon.push({
-                    name : [ Object.keys( dcconJSON )[i] ],
-                    src : dcconJSON[Object.keys( dcconJSON )[i]]
-                });
-            }
-        }
-        else{
-            dcconJSON = dcconJSON['dccons'];
-
-            dccondata.dccon = dcconJSON.map(dccon => {
-                return {
-                    name : dccon.keywords.concat(dccon.tags),
-                    src : dccon.path
-                }
-            })
-        }
-    }
-
     dccon_picker.init = function(type, dcconJSON){
         contentFrame = null;
         controlFrame = null;
@@ -143,7 +119,7 @@ let dccon_picker = (function(){
         dcconPickerButtons = null;
         initialState = false;
 
-        setDCCON(type, dcconJSON);
+        dccondata.dccon = parseDcconData(type, dcconJSON);
 
     }
 

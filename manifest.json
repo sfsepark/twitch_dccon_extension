@@ -6,7 +6,11 @@
 
     "browser_action": {
         "css":["plugins/bootstrap.min.css"],
-        "scripts":["plugins/jquery.min.js","plugins/jquery.min.js","plugins/jquery.quicksearch.min.js","plugins/jquery.lazyload.min.js"],
+        "scripts":["popup_selector_script.js",
+            "plugins/clipboard.min.js",
+            "../content_scripts/parse_dccon_data.js",
+            "../content_scripts/dccon_picker_button.js"
+        ],
 		"default_popup": "popup/popup_selector.html"
 	},
 
@@ -19,13 +23,10 @@
         "css":["popup/plugins/bootstrap.min.css","styles/dccon_style.css","styles/styles.css"],
         "js":[
             "setup/setting.js",
-
-            "popup/plugins/jquery.min.js","popup/plugins/jquery.min.js","popup/plugins/jquery.quicksearch.min.js","popup/plugins/jquery.lazyload.min.js",
-            "popup/plugins/clipboard.min.js",
-            "popup/plugins/handlebars.min.js",
             
             "TwitchChatFramework/content_scripts/tmi.min.js","TwitchChatFramework/content_scripts/twitchChatframe.js",
 
+            "content_scripts/parse_dccon_data.js",
             "content_scripts/dccon_picker_button.js" ,
             "content_scripts/dccon_picker.js" ,
             

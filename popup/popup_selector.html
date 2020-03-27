@@ -8,7 +8,7 @@
   <style>
 
     body{
-      width:400; height:600;
+      width:400; height:505;
       background-color: #333;
       margin: 0 auto;
     }
@@ -80,7 +80,7 @@
       margin: 18px auto;
       background-color: #333;
     }
-    .emoticon {
+    .dccon-emoticon {
       margin-top: 75px;
       margin-bottom: 20px;
       margin-left: 10px;
@@ -130,25 +130,15 @@
       }
     }
 
+    
+    div.dccon-emoticon div.dccon-hide{
+        display: none !important;
+    }
+
   </style>
-  <script src="plugins/jquery.min.js"></script>
-  <script src="plugins/handlebars.min.js"></script>
-  <script src="plugins/jquery.quicksearch.min.js"></script>
-  <script src="plugins/jquery.lazyload.min.js"></script>
   <script src="plugins/clipboard.min.js"></script>
 </head>
-<body>
-  <script id="dccon-template" type="text/x-handlebars-template">
-  {{#dccon}}
-  <div class="img">
-    <a href="#">
-      <img class="lazy" data-original="{{src}}" alt="{{name}}" width="100" height="100">
-    </a>
-    <div class="desc">{{name}}</div>
-  </div>
-  {{/dccon}}
-  </script>
-  
+<body>  
   <div class="headerBox">
     <div class="row header">
       <div class="col-lg-6l">
@@ -169,10 +159,13 @@
       </div>
     </div>
   </div>
-  <div id="emoticon" class="emoticon">
+  <div id="dccon-emoticon" class="dccon-emoticon">
   </div>
-  <script src = "popup_selector_script.js">
-
+  <script type= "text/javascript" src = "../content_scripts/parse_dccon_data.js">
+  </script>
+  <script type= "text/javascript" src = "../content_scripts/dccon_picker_button.js">
+  </script>
+  <script type= "text/javascript" src = "popup_selector_script.js">
   </script>
 </body>
 </html>
