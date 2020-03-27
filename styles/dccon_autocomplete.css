@@ -1,0 +1,98 @@
+.nc-chat-input-container__open{
+
+
+    padding: .5rem!important;
+    background-color: #fff!important;
+    background-color: var(--color-background-base)!important;
+    border-bottom-left-radius: 6px!important;
+    border-bottom-left-radius: var(--border-radius-large)!important;
+    border-bottom-right-radius: 6px!important;
+    border-bottom-right-radius: var(--border-radius-large)!important;
+    
+    
+    border: 1px solid rgba(0,0,0,.1);
+    border-top: 0;
+    box-shadow: 0 2px 3px -1px rgba(0,0,0,.1), 0 2px 2px -2px rgba(0,0,0,.02);
+    margin: 0 -.5rem -.5rem;
+    min-width: 100%;
+}
+
+.nc-chat-input-tray__off{
+    display : none !important;
+}
+
+.nc-chat-input-tray__floating{
+    /*
+        원본 classList :
+        chat-input-tray__floating chat-input-tray__open tw-absolute tw-block tw-border-b tw-border-l tw-border-r tw-border-radius-large tw-border-t tw-c-background-base tw-elevation-1 tw-left-0 tw-pd-05 tw-right-0 tw-z-below
+    */
+
+/*.tw-pd-05 */
+    padding: .5rem!important;
+
+/*.tw-z-below */
+    z-index: -1!important;
+
+/*.tw-left-0 */
+    left: 0!important;
+
+/*.tw-right-0 */
+    right: 0!important;
+
+/*.tw-absolute */
+    position: absolute!important;
+
+/*.tw-block */
+    display: block!important;
+
+/*.tw-elevation-1 */
+    box-shadow: 0 1px 2px rgba(0,0,0,.15),0 0 2px rgba(0,0,0,.1)!important;
+    box-shadow: var(--shadow-elevation-1)!important;
+
+/*.tw-c-background-base */
+    background-color: #fff!important;
+    background-color: var(--color-background-base)!important;
+
+/*.tw-border-radius-large */
+    border-radius: 6px!important;
+    border-radius: var(--border-radius-large)!important;
+
+/*.tw-border-l */
+    border-left: 1px solid rgba(0,0,0,.1)!important;
+    border-left: var(--border-width-default) solid var(--color-border-base)!important;
+
+/*.tw-border-b */
+    border-bottom: 1px solid rgba(0,0,0,.1)!important;
+    border-bottom: var(--border-width-default) solid var(--color-border-base)!important;
+
+/*.tw-border-r */
+    border-right: 1px solid rgba(0,0,0,.1)!important;
+    border-right: var(--border-width-default) solid var(--color-border-base)!important;
+
+/*.tw-border-t */
+    border-top: 1px solid rgba(0,0,0,.1)!important;
+    border-top: var(--border-width-default) solid var(--color-border-base)!important;
+
+/*.chat-input-tray__floating */
+    bottom: 100%;
+
+/*.chat-input-tray__open */
+    margin: 0 -.5rem -.5rem;
+    min-width: 100%;
+
+}
+
+.nc-chat-input-tray {
+/*tw-pd-0 */
+    padding: 0!important;
+
+/*tw-align-items-start */
+    align-items: flex-start!important;
+
+/*tw-flex-row */
+    flex-direction: row!important;
+
+/*tw-flex */
+    display: flex!important;
+    
+}
