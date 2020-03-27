@@ -27,7 +27,9 @@
             "TwitchChatFramework/content_scripts/tmi.min.js","TwitchChatFramework/content_scripts/twitchChatframe.js",
 
             "content_scripts/funzinnu_dccon_picker.js" ,
+            "content_scripts/dccon_picker_button.js" ,
             "content_scripts/dccon_picker.js" ,
+            
             "content_scripts/dccon_observe.js",
             "content_scripts/dccon_start_checker.js",
             "content_scripts/main.js"

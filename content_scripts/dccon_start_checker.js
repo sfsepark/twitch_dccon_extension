@@ -43,8 +43,12 @@ function useDcconStartChecker(loginStatus){
 
                                 if(roomStreamer == 'funzinnu')
                                 {
-                                    funzinnu_dccon_picker.setDCCONJSON(DCCONJSON);
-                                    pickers.push(funzinnu_dccon_picker);
+                                    dccon_picker.init('funzinnu', DCCONJSON);
+                                    pickers.push(dccon_picker);
+                                }
+                                else{
+                                    dccon_picker.init('other', DCCONJSON);
+                                    pickers.push(dccon_picker);
                                 }
                             }
 

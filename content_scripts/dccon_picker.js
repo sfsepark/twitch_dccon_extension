@@ -59,14 +59,6 @@ let dccon_picker = (function(){
     }
 
     var initChatInject = function(){
-        contentFrame.innerHTML = `
-            <div class="loading">로딩 중...</div>
-            <div class="${EMOTICON_FRAME_CLASSNAME}">
-            </div>
-        `;
-        
-        searchInput.value = '';
-
         setTimeout(LoadDCCon, 10);
     }
 
@@ -74,8 +66,8 @@ let dccon_picker = (function(){
         if(initialState == false){
             initChatInject();
 
-            searchInput = controlFrame.getElementByClassName('dcconsearch')[0];
-            searchInput.addEventListener('change', (e) => {
+            searchInput = controlFrame.getElementsByClassName('dcconsearch')[0];
+            searchInput.addEventListener('input', (e) => {
                 if(dcconPickerButtons != null){
                     dcconPickerButtons.search(e.target.value);
                 }
@@ -99,8 +91,8 @@ let dccon_picker = (function(){
     let LoadDCCon = function(){
         try {
             dcconPickerButtons = new DcconPickerButtons(dccondata, dcconPickerOnClick);
-            let emoticon_frame = contentFrame.getElementsByClassName('.' + EMOTICON_FRAME_CLASSNAME)[0];
-            emoticon_frame.appendChild = dcconPickerButtons.frame;
+            let emoticon_frame = contentFrame.getElementsByClassName(EMOTICON_FRAME_CLASSNAME)[0];
+            emoticon_frame.appendChild(dcconPickerButtons.frame);
 
             contentFrame.removeChild(contentFrame.getElementsByClassName('loading')[0]);
         } catch (e) {
@@ -136,7 +128,7 @@ let dccon_picker = (function(){
 
             dccondata.dccon = dcconJSON.map(dccon => {
                 return {
-                    name : dccon.keywords.concat(dccon.tag),
+                    name : dccon.keywords.concat(dccon.tags),
                     src : dccon.path
                 }
             })
@@ -149,6 +141,7 @@ let dccon_picker = (function(){
 
         searchInput = null;
         dcconPickerButtons = null;
+        initialState = false;
 
         setDCCON(type, dcconJSON);
 

@@ -20,7 +20,7 @@ let DcconPickerButtons = function(dccondata, onClick){
     };
 
     this.frame = document.createElement('div');
-    this.dcconData = dccondata;
+    this.dcconData = dccondata.dccon;
 
     this.dcconData.forEach((v,i) => {
         let name = '~' + v.name[0];
@@ -32,11 +32,11 @@ let DcconPickerButtons = function(dccondata, onClick){
     this.frame.className = FRAME_CLASSNAME;
     this.frame.addEventListener('click', (e) => {
         let target = e.target;
-        if(!target.classList.containts(FRAME_CLASSNAME)){
+        if(!target.classList.contains(FRAME_CLASSNAME)){
             let closestElement = target.closest('.' + BUTTON_CLASSNAME);
 
-            if(closestElement != null && closestElement.alt != undefined){
-                onClick(closestElement.alt);
+            if(closestElement != null && closestElement.getAttribute('alt') != undefined){
+                onClick(closestElement.getAttribute('alt'));
             }
         }
     })
@@ -45,12 +45,28 @@ let DcconPickerButtons = function(dccondata, onClick){
 } 
 
 DcconPickerButtons.prototype.search = function(text){
-    this.dcconData.forEach(v => {
-        if(v.name.includes(text)){
-            v.pickerDOM.removeClass('dccon-hide');
-        }
-        else{
-            v.pickerDOM.addClass('dccon-hide');
-        }
-    })
+    if(text == ''){
+        this.dcconData.forEach(v => {
+            v.pickerDOM.classList.remove('dccon-hide');
+        })
+    }
+    else{
+        this.dcconData.forEach(v => {
+            let finded = false;
+
+            v.name.forEach(name => {
+                if(name.search(text) != -1){
+                    finded = true;
+                }
+            })
+
+            if(finded){
+                v.pickerDOM.classList.remove('dccon-hide');
+            }
+            else{
+                v.pickerDOM.classList.add('dccon-hide');
+            }
+        })
+    }
+
 }

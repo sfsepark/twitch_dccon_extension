@@ -252,6 +252,6 @@ section[data-a-target=chat-theme-dark] .form-control{
     border-color: rgb(57,46,92) !important;
 }
 
-div.dccon_frame div.emoticon div.dccon-hide{
+div.dccon_frame div.dccon-emoticon div.dccon-hide{
     display: none !important;
 }
