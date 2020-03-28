@@ -1,12 +1,12 @@
+const NC_CHAT_INPUT_TRAY_CLASSNAME = 'nc-simplebar-content';
+const NC_CHAT_INPUT_TRAY__FLOATING_ON = 'nc-chat-input-tray__floating';
+const NC_CHAT_INPUT_TRAY__FLOATING_OFF = 'nc-chat-input-tray__off';
+
 let dcconAutoCompleteTray = (function(){
 
     // dccon Auto Complete Tray 정의 
 
     let dcconAutoCompleteTray = {};
-
-    const NC_CHAT_INPUT_TRAY_CLASSNAME = 'nc-simplebar-content';
-    const NC_CHAT_INPUT_TRAY__FLOATING_ON = 'nc-chat-input-tray__floating';
-    const NC_CHAT_INPUT_TRAY__FLOATING_OFF = 'nc-chat-input-tray__off';
 
     const SCROLL_AREA_CLASSNAME = 'simplebar-scroll-content';
 
@@ -105,6 +105,12 @@ let dcconAutoCompleteTray = (function(){
         }
     })
 
+    dcconAutoCompleteTray.select = () => {
+        if(dcconAutoCompleteItems.length > 0){
+
+        }
+    }
+
 
 
     // dcconAutoCompleteTray 의 interface 정의
@@ -136,6 +142,7 @@ let dcconAutoCompleteTray = (function(){
             selectItemIndex(selectedDCCON);
         }
         else{
+            dcconAutoCompleteItems = [];
             ncTrayContentFrameDOM.innerText = '해당하는 디시콘이 없습니다.'
         }
         
