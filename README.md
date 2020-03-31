@@ -12,28 +12,11 @@
 정확한 문법은 다음과 같습니다.
 - 원하는 채팅 사이에 ~XXX 로 디시콘을 표시
 
-# 설치법
+# 다운로드
 
-현재 모종의 이유로 크롬웹스토어는 사용이 불가능합니다. 최대한 빠른시일내에 복구하겠습니다 ㅜㅜ
+크롬 웹스토어 : https://chrome.google.com/webstore/detail/twitch-dccon-extension/nljojmgmnidbehhocgkbeejchcmkpgki?hl=ko
 
-https://chrome.google.com/webstore/detail/twitch-dccon-extension/nljojmgmnidbehhocgkbeejchcmkpgki?hl=ko
-
-
-대신 다음과 같은 설치방법을 따라주세요. ( https://tgd.kr/funzinnu/37258258 )
-
-1. github에서 파일을 다운로드 받으세요.
-
-2.  크롬 주소창에 chrome://extensions 를 입력하세요.
-
-3. 개발자 모드를 활성화 시키세요.
-
-4. '압축해제된 확장 프로그램을 로드합니다.' 버튼을 누르세요.
-
-5. 1.에서 다운로드 받은 twitch_dccon_extension "폴더" 를 선택하여 여세요.
-
-6. ON OFF 버튼을 활성화 시키세요.
-
-최대한 빨리 복구하겠습니다!
+파이어폭스 애드온 : https://addons.mozilla.org/ko/firefox/addon/twitch-dccon-extension/
 
 
 
