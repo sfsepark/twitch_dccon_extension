@@ -197,10 +197,12 @@ const constructAutoCompleteController = (type, DCCONJSON) => {
                 
                 document.getElementById('root').addEventListener('click', clickOutsideEventListener);
 
+                dcconAutoCompleteTray.addOnSelect(selectDCCON);
             }
         },
         onReset : function(){
             document.getElementById('root').removeEventListener('click',clickOutsideEventListener);
+            dcconAutoCompleteTray.resetOnSelectListener();
         }
     }
 }

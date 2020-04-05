@@ -99,17 +99,23 @@ let dcconAutoCompleteTray = (function(){
         }
     })
 
+    let onSelectListeners = [];
+
     dcconAutoCompleteTray.DOM.addEventListener('click', (e) => {
         let closestElement = e.target.closest('.' + NC_AUTO_COMPLETE_ITEM_CLASSNAME);
 
         if(closestElement != null){
-            
+            dcconAutoCompleteTray.select();
         }
     })
 
     dcconAutoCompleteTray.select = () => {
         if(dcconAutoCompleteItems.length > 0){
+            let curDCCON = '~' + dcconAutoCompleteTray.getSelectedDCCON() + ' ';
 
+            for(let i = 0 ; i < onSelectListeners.length ; i ++){
+                onSelectListeners[i](curDCCON);
+            }
         }
     }
 
@@ -130,6 +136,8 @@ let dcconAutoCompleteTray = (function(){
     dcconAutoCompleteTray.turnOn = (data) => {
 
         ncTrayContentFrameDOM.innerHTML = '';
+
+        ncTrayScrollContentDOM.scrollTop = 0;
 
         selectedDCCON = 0;
 
@@ -193,7 +201,14 @@ let dcconAutoCompleteTray = (function(){
         else 
             return '';
     }
+
+    dcconAutoCompleteTray.addOnSelect = (listener) => {
+        onSelectListeners.push(listener);
+    }
     
+    dcconAutoCompleteTray.resetOnSelectListener = () => {
+        onSelectListeners = [];
+    }
 
     return dcconAutoCompleteTray;
 })()
