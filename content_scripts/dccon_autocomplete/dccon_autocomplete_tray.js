@@ -10,13 +10,15 @@ let dcconAutoCompleteTray = (function(){
 
     const SCROLL_AREA_CLASSNAME = 'simplebar-scroll-content';
 
+    const MAX_HEIGHT = 175;
+
     let trayHTML = `
         <div data-test-selector="chat-input-tray" class="tw-align-items-start tw-flex tw-flex-row tw-pd-0">
             <div class="tw-flex-grow-1 tw-pd-0">
                 <div>
                     <div class="tw-pd-t-05 tw-pd-x-05 tw-relative">
                         <div data-test-selector="autocomplete-matches-container" class="autocomplete-match-list tw-flex tw-flex-column tw-overflow-hidden">
-                            <div class="scrollable-area scrollable-area--suppress-scroll-x" data-test-selector="scrollable-area-wrapper" data-simplebar="init" style="max-height: 722px;">
+                            <div class="scrollable-area scrollable-area--suppress-scroll-x" data-test-selector="scrollable-area-wrapper" data-simplebar="init" style="max-height: ${MAX_HEIGHT}px;">
                                 <div class="simplebar-track vertical" style="visibility: hidden;">
                                     <div class="simplebar-scrollbar">
                                     </div>
@@ -156,12 +158,27 @@ let dcconAutoCompleteTray = (function(){
                 selectedDCCON = selectedDCCON + 1;
                 if(selectedDCCON >= dcconAutoCompleteItems.length){
                     selectedDCCON = 0;
+                    ncTrayScrollContentDOM.scrollTop = 0;
+                }
+                else{
+                    let offsetTop = dcconAutoCompleteItems[selectedDCCON].DOM.offsetTop;
+                    let offsetHeight = dcconAutoCompleteItems[selectedDCCON].DOM.offsetHeight;
+                    if(ncTrayScrollContentDOM.scrollTop + MAX_HEIGHT - offsetHeight < offsetTop){
+                        ncTrayScrollContentDOM.scrollTop = offsetTop - MAX_HEIGHT + offsetHeight;
+                    }
                 }
             }
             else{
                 selectedDCCON = selectedDCCON - 1;
                 if(selectedDCCON < 0){
                     selectedDCCON = dcconAutoCompleteItems.length - 1;
+                    ncTrayScrollContentDOM.scrollTop = dcconAutoCompleteItems[selectedDCCON].DOM.offsetTop + dcconAutoCompleteItems[selectedDCCON].DOM.offsetHeight;
+                }
+                else{
+                    let offsetTop = dcconAutoCompleteItems[selectedDCCON].DOM.offsetTop;
+                    if(ncTrayScrollContentDOM.scrollTop > offsetTop){
+                        ncTrayScrollContentDOM.scrollTop = offsetTop;
+                    }
                 }
             }
 

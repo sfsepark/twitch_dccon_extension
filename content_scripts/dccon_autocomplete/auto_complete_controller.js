@@ -90,29 +90,65 @@ const constructAutoCompleteController = (type, DCCONJSON) => {
     let arrowEventListener =  function(e){
 
         if(state == true){
+            
             if(e.keyCode == 38){
+                e.preventDefault();
                 dcconAutoCompleteTray.selectNext(ARROW_UP_DIR);
             }
             else if(e.keyCode == 40){
+                e.preventDefault();
                 dcconAutoCompleteTray.selectNext(ARROW_DOWN_DIR);
             }
         }
         
     }
 
-    let selectEventListener = function(e){
-        if(e.keyCode == 9){
-            e.preventDefault();
+    let changeCurToken = function(str){
+        const tokenizerRegex = /\s+|\S+/g;
 
+        const curChatText = tcf.chatText;
+        let lastToken =  tokenizerRegex.exec(curChatText);
+
+        let newChatText = '';
+    
+        let index = 0;
+        
+        while(lastToken){
+            if(tokenizerRegex.lastIndex >= tcf.chatCursor && tcf.chatCursor > index){
+                newChatText += str;
+            }
+            else{
+                newChatText += lastToken;
+            }
+    
+            index = tokenizerRegex.lastIndex;
+            lastToken =  tokenizerRegex.exec(curChatText);
+        }
+
+        tcf.chatText = newChatText;
+    }
+
+    let selectDCCON = function(str){
+        changeCurToken(str);
+
+        turnOff();
+    }
+
+    let selectEventListener = function(e){
+        if(e.keyCode == 9 || e.keyCode == 13){
             if(state == true){
-                
+                e.preventDefault();
+
+                let curDCCON = '~' +  dcconAutoCompleteTray.getSelectedDCCON() + ' ';
+
+                selectDCCON(curDCCON);
             }
         }
     }
 
     let detectChatEventListener = function(e) {
-        if(e.keyCode != 9 &&
-            e.target == tcf.chatTarget.chat_input){
+        if( !(state == true && (e.keyCode == 9 || e.keyCode == 13)) 
+            && e.target == tcf.chatTarget.chat_input){
             let tokenInfo = getCurrentTokenInfo();
             if(tokenInfo){
                 let dcconMatch = tokenInfo.str.match(dcconRegex);
