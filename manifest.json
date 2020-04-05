@@ -20,11 +20,15 @@
 
     "content_scripts": [{
         "matches" : ["https://*.twitch.tv/","https://*.twitch.tv/*"],
-        "css":["popup/plugins/bootstrap.min.css","styles/dccon_style.css","styles/styles.css"],
+        "css":["popup/plugins/bootstrap.min.css","styles/dccon_style.css","styles/styles.css","styles/dccon_autocomplete.css"],
         "js":[
             "setup/setting.js",
             
             "TwitchChatFramework/content_scripts/tmi.min.js","TwitchChatFramework/content_scripts/twitchChatframe.js",
+            
+            "content_scripts/dccon_autocomplete/auto_complete_item.js",
+            "content_scripts/dccon_autocomplete/dccon_autocomplete_tray.js",
+            "content_scripts/dccon_autocomplete/auto_complete_controller.js",
 
             "content_scripts/parse_dccon_data.js",
             "content_scripts/dccon_picker_button.js" ,

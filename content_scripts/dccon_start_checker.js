@@ -41,16 +41,15 @@ function useDcconStartChecker(loginStatus){
 
                             if(loginStatus == true){
 
-                                if(roomStreamer == 'funzinnu')
-                                {
-                                    dccon_picker.init('funzinnu', DCCONJSON);
-                                    pickers.push(dccon_picker);
-                                }
-                                else{
-                                    dccon_picker.init('other', DCCONJSON);
-                                    pickers.push(dccon_picker);
-                                }
+                                dccon_picker.init(roomStreamer, DCCONJSON);
+                                pickers.push(dccon_picker);
+
                             }
+
+                            let dcconAutoCompleteController = constructAutoCompleteController(roomStreamer, DCCONJSON);
+
+                            onLoad.push(dcconAutoCompleteController.onLoad);
+                            onReset.push(dcconAutoCompleteController.onReset);
 
                             var config = new tcf.config(
                                 observeFunctions,
