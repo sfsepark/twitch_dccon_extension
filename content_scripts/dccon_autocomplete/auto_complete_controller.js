@@ -137,6 +137,7 @@ const constructAutoCompleteController = (type, DCCONJSON) => {
     let selectEventListener = function(e){
         if(e.keyCode == 9 || e.keyCode == 13){
             if(state == true){
+                e.stopImmediatePropagation();
                 e.preventDefault();
 
                 let curDCCON = '~' +  dcconAutoCompleteTray.getSelectedDCCON() + ' ';
