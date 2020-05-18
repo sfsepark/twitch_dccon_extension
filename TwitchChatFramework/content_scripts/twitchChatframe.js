@@ -1524,17 +1524,27 @@ define('observer',[],function(){
                 }
                 else
                 {
-                    //clip,video chatting
-                    target_lists = document.getElementsByClassName('qa-vod-chat');
-                    if(target_lists.length != 0)
-                    {
-                        target_lists = target_lists[0].getElementsByClassName('tw-align-items-end');
-                        chatMessage = 'qa-mod-message';
-                    }
-                    else
-                    {
-                        chatMessage = '';
-                    }
+		//twitch(new) 
+               	target_lists = document.getElementsByClassName('chat-scrollable-area__message-container');
+			chatMessage = 'chat-message-text';
+
+		if(target_lists.length == 0)
+		{
+
+                    	//clip,video chatting
+                    	target_lists = document.getElementsByClassName('qa-vod-chat');
+
+
+                   	 	if(target_lists.length != 0)
+                    	{
+                        		target_lists = target_lists[0].getElementsByClassName('tw-align-items-end');
+                        		chatMessage = 'qa-mod-message';
+                    	}
+                    	else
+                    	{
+                        		chatMessage = '';
+                    	}
+		}
                 }
             }
 
