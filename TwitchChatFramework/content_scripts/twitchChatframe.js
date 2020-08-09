@@ -1660,24 +1660,25 @@ define('observer',[],function(){
         }
         else if(chatMessage == 'chat-message-text')
         {
-            var len = chatLI.children.length
+            var children = chatLI.querySelectorAll(`span[data-a-target]`)
+            var len = children.length
 
             for(i = 0 ; i < len ; i ++)
             {
-                if(chatLI.children[i].getAttribute('data-a-target') == chatMessage)
+                if(children[i].getAttribute('data-a-target') == chatMessage)
                 {
-                    chatMessageSpan.push(chatLI.children[i]);
+                    chatMessageSpan.push(children[i]);
                 }
-                else if(chatLI.children[i].getAttribute('data-a-target') == emoteName)
+                else if(children[i].getAttribute('data-a-target') == emoteName)
                 {
-                    emoteSpan.push(chatLI.children[i]);
+                    emoteSpan.push(children[i]);
                 }
                 else if(
-                    chatLI.children[i].firstChild != null &&
-                    chatLI.children[i].firstChild.nodeName == 'SPAN' &&
-                    chatLI.children[i].firstChild.getAttribute('data-a-target') == emoteName)
+                    children[i].firstChild != null &&
+                    children[i].firstChild.nodeName == 'SPAN' &&
+                    children[i].firstChild.getAttribute('data-a-target') == emoteName)
                 {
-                    emoteSpan.push(chatLI.children[i].firstChild);
+                    emoteSpan.push(children[i].firstChild);
                 }
             }
             
