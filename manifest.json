@@ -2,7 +2,7 @@
     "manifest_version" : 2,
     "name": "Twitch DCCON extension",
     "description" : "트위치 디시콘 익스텐션 - 당신의 트위치 채팅창에서 디시콘을 보여줍니다.",
-    "version" : "1.6.0.3",
+    "version" : "1.6.1",
 
     "browser_action": {
         "css":["plugins/bootstrap.min.css"],
