@@ -12,7 +12,7 @@ function AutoCompleteItem({src,name, index}){
         <button class="${NC_ITEM_FOCUSED_OFF}" data-a-target="${name[0]}" data-click-index="0">
             <div class="tw-align-items-center tw-flex tw-pd-x-05">
                 <div class="tw-flex-shrink-0 tw-pd-05">
-                    <img alt="${name[0]}-emote" class="emote-autocomplete-provider__image" srcset="${src}">
+                    <img alt="${name[0]}-emote" class="emote-autocomplete-provider__image" src="${src}">
                 </div>
                 <span class="tw-ellipsis" title="${name[0]}">${name[0]}</span>
             </div>
