@@ -4,7 +4,7 @@ const NC_AUTO_COMPLETE_ITEM_CLASSNAME = 'nc-auto-complete-item';
 const NC_AUTO_COMPLETE_ITEM_PREFIX = 'nc-auto-complete-item__';
 
 const NC_ITEM_FOCUSED_OFF = 'tw-block tw-border-radius-small tw-full-width tw-interactable tw-interactable--alpha tw-interactive';
-const NC_ITEM_FOCUSED_ON = 'tw-block tw-border-radius-small tw-full-width tw-interactable tw-interactable--alpha tw-interactable--hover-forced tw-interactable--selected tw-interactive'
+const NC_ITEM_FOCUSED_ON = 'tw-block tw-border-radius-small tw-full-width tw-interactable tw-interactable--alpha tw-interactable--hover-forced nc-interactable--selected tw-interactable--selected tw-interactive'
 
 function AutoCompleteItem({src,name, index}){
 

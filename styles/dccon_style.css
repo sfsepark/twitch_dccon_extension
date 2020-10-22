@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.nc-interactable--selected{
+    background-color: rgba(0,0,0,0.1);
+}
+
 .nc-light .dccon_control_frame{
     background-color : #ffffff;
 }
