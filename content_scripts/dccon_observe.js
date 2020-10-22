@@ -93,22 +93,11 @@ var dcconObserver = function(streamer,DCCONJSON){
 
         var cur_dccon ; 
 
-        if(streamer == 'funzinnu')
-        {
-            if(DCCONJSON[Text] != undefined)   {
-                cur_dccon = DCCONJSON[Text];
-            }
-            else {
-                return '~' + converted_Text;
-            }
-        }
-        else
-        {
-            cur_dccon = GET_DCCON(Text);
+        cur_dccon = GET_DCCON(Text);
 
-            if(cur_dccon == undefined ) 
-                return '~' + converted_Text + ' ';
-        }
+        if(cur_dccon == undefined ) 
+            return '~' + converted_Text + ' ';
+        
         /*
 
         <div class="tw-tooltip-wrapper inline" data-a-target="emote-name"><img src="http://puu.sh/sYGQM/1887cb7d57.gif" alt="~우리핵박수1" class="emoticon" style="width:100px; height:100px"><div class="tw-tooltip tw-tooltip--up tw-tooltip--align-center" data-a-target="tw-tooltip-label" style="margin-bottom: 0.9rem; display: block; visibility: visible;">~우리핵박수1</div></div>
