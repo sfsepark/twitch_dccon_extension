@@ -18,7 +18,7 @@ function useDcconStartChecker(loginStatus){
                     if(JSONURL['user_id'] != null)
                     {                    
                         if(roomStreamer == 'funzinnu') {
-                            JSONURL = 'http://funzinnu.cafe24.com/stream/dccon.php';
+                            JSONURL = 'https://cors-anywhere.herokuapp.com/https://www.funzinnu.com/stream/dccon.js';
                         }
                         else  {
                             JSONURL = JSONURL['dccon_url'];
@@ -30,7 +30,25 @@ function useDcconStartChecker(loginStatus){
                             url: JSONURL,
                             data: ''
                         }, function(responseText) {
-                            DCCONJSON = JSON.parse(responseText);
+
+                            if(roomStreamer === 'funzinnu'){
+                                var responseJSON = responseText.replace('dcConsData','')
+                                responseJSON = responseJSON.replace('=', '')
+                                responseJSON = responseJSON.replace(';', '')
+                                DCCONJSON = {"dccons" : JSON.parse(responseJSON).map(
+                                    ({name, uri, keywords, tags}) => 
+                                    ({
+                                        name,
+                                        path : uri, 
+                                        keywords, 
+                                        tags : tags.filter(tag => tag !== '미지정')}
+                                    ))
+                                }
+                            }
+                            else{
+
+                                DCCONJSON = JSON.parse(responseText);
+                            }
                             
                             var observeFunctions = [];
                             var pickers = [];
